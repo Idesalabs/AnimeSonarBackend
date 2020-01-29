@@ -1,5 +1,7 @@
 import { ApolloServer, gql } from 'apollo-server-micro'
 import schema from './schema/schemaString'
+import resolvers from './resolvers'
+
 const gqlSchema = gql(schema)
 const microCors = require('micro-cors')
 const cors = microCors({
@@ -13,6 +15,7 @@ const server = new ApolloServer({
     introspection: true,
     mocks: true,
     typeDefs: gqlSchema,
+    resolvers: resolvers as any
 })
 
 // @ts-ignore
