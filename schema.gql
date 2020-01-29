@@ -1,0 +1,29 @@
+type Anime {
+    title: String!@unique
+    description: String!
+    minutesPerEpisode: Int!
+    episodeCount: Int!
+    moodPoint: MoodPoint!
+    tags: [TagRating!]!
+    subTags: [SubTag!]!
+}
+
+type MoodPoint @embedded {
+    totalPoints:Int
+    totalRatings:Int
+}
+
+type Tag {
+    name: String!
+}
+
+type TagRating {
+    tag:Tag!
+    totalPoints: Int!
+    totalRatings: Int!
+    # avg ratings totalPoints/totalRatings
+}
+
+type SubTag {
+    name: String!
+}
