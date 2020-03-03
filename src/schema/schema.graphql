@@ -1,3 +1,9 @@
+enum AnimeStatus {
+    airing
+    upcoming
+    finished
+}
+
 type Anime {
     title: String!
     description: String!
@@ -51,7 +57,7 @@ input RecommendAnimeInputTagInput {
 
 input RecommendAnimeInput {
     tags:[RecommendAnimeInputTagInput!]!
-    subTags:[String!]
+    subTags:[ID!]
     blackList:[ID!]
     moodPoint:Int
 }

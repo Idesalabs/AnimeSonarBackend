@@ -1,0 +1,71 @@
+{
+    "set": [
+        {
+            "title": "anime1",
+            "description": "",
+            "minutesPerEpisode": 23,
+            "episodeCount": 23,
+            "tagged": [
+                {
+                    "uid": "_:tag1",
+                    "tagged|score": 1
+                },
+                {
+                    "uid": "_:tag2",
+                    "tagged|score": 1
+                }
+            ],
+            "subtagged": [
+                {
+                    "uid": "_:subtag1",
+                    "subtagged|score": 1
+                },
+                {
+                    "uid": "_:subtag2",
+                    "subtagged|score": 1
+                }
+            ],
+            "emotioned": [
+                {
+                    "uid": "_:emotion1",
+                    "emotioned|score": 1
+                },
+                {
+                    "uid": "_:emotion2",
+                    "emotioned|score": 1
+                }
+            ],
+            "dgraph.type": "anime"
+        },
+        {
+            "uid": "_:tag1",
+            "name": "tag1",
+            "dgraph.type": "tag"
+        },
+        {
+            "uid": "_:tag2",
+            "name": "tag2",
+            "dgraph.type": "tag"
+        },
+        {
+            "uid": "_:subtag1",
+            "name": "subtag1",
+            "dgraph.type": "subtag"
+        },
+        {
+            "uid": "_:subtag2",
+            "name": "subtag2",
+            "dgraph.type": "subtag"
+        },
+        {
+            "uid": "_:emotion1",
+            "name": "emotion1",
+            "dgraph.type": "emotion"
+        },
+        {
+            "uid": "_:emotion2",
+            "name": "emotion2",
+            "dgraph.type": "emotion"
+        }
+    ]
+}
