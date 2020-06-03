@@ -1,5 +1,11 @@
 
-    const data = `type Anime {
+    const data = `enum AnimeStatus {
+  airing
+  upcoming
+  finished
+}
+
+type Anime {
   title: String!
   description: String!
   minutesPerEpisode: Int!
@@ -7,6 +13,8 @@
   tags: [Tag!]!
   subTags: [SubTag!]
   id: ID!
+  status: AnimeStatus!
+  epochAired: Int!
 }
 
 type Tag {
@@ -48,7 +56,7 @@ input RecommendAnimeInputTagInput {
 
 input RecommendAnimeInput {
   tags: [RecommendAnimeInputTagInput!]!
-  subTags: [String!]
+  subTags: [ID!]
   blackList: [ID!]
   moodPoint: Int
 }

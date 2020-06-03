@@ -12,6 +12,8 @@ type Anime {
     tags: [Tag!]!
     subTags: [SubTag!]
     id:ID!
+    status: AnimeStatus!
+    epochAired: Int!
 }
 
 type Tag {

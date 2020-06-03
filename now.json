@@ -1,6 +1,4 @@
 {
-    "name": "anime-sonar-api",
-    "alias": "anime-sonar-api.now.sh",
     "version": 2,
     "builds": [
         {

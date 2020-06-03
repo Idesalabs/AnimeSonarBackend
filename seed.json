@@ -1,10 +1,15 @@
 {
     "set": [
         {
+            "uid": "_:anime1",
             "title": "anime1",
             "description": "",
             "minutesPerEpisode": 23,
             "episodeCount": 23,
+            "epochAired": "2019-03-28T14:00:00-06:00",
+            "has_status": {
+                "uid": "_:status1"
+            },
             "tagged": [
                 {
                     "uid": "_:tag1",
@@ -35,37 +40,57 @@
                     "emotioned|score": 1
                 }
             ],
-            "dgraph.type": "anime"
+            "dgraph.type": "Anime"
         },
         {
             "uid": "_:tag1",
             "name": "tag1",
-            "dgraph.type": "tag"
+            "dgraph.type": "Tag"
         },
         {
             "uid": "_:tag2",
             "name": "tag2",
-            "dgraph.type": "tag"
+            "dgraph.type": "Tag"
         },
         {
             "uid": "_:subtag1",
             "name": "subtag1",
-            "dgraph.type": "subtag"
+            "dgraph.type": "Subtag"
         },
         {
             "uid": "_:subtag2",
             "name": "subtag2",
-            "dgraph.type": "subtag"
+            "dgraph.type": "Subtag"
         },
         {
             "uid": "_:emotion1",
             "name": "emotion1",
-            "dgraph.type": "emotion"
+            "dgraph.type": "Emotion"
         },
         {
             "uid": "_:emotion2",
             "name": "emotion2",
-            "dgraph.type": "emotion"
+            "dgraph.type": "Emotion"
+        },
+        {
+            "uid": "_:status1",
+            "status": "airing"
+        },
+        {
+            "status": "upcoming"
+        },
+        {
+            "status": "finished"
+        },
+        {
+            "hash": "",
+            "suggests": [
+                {
+                    "suggests|score": 1,
+                    "uid": "_:anime1"
+                }
+            ],
+            "dgraph.type": "Parameter"
         }
     ]
 }
