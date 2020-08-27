@@ -23,7 +23,7 @@
   "homepage": "https://github.com/Idesalabs/AnimeSonarBackend#readme",
   "dependencies": {
     "@types/micro": "^7.3.3",
-    "apollo-server-micro": "^2.9.16",
+    "apollo-server-micro": "^2.14.2",
     "date-fns": "^2.15.0",
     "graphql": "^14.6.0",
     "graphql-import": "^1.0.0-beta.2",

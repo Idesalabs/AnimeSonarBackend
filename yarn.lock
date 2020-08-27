@@ -26,6 +26,10 @@
   dependencies:
     apollo-env "^0.6.5"
 
+"@apollographql/graphql-playground-html@1.6.24":
+  version "1.6.24"
+  resolved "https://registry.yarnpkg.com/@apollographql/graphql-playground-html/-/graphql-playground-html-1.6.24.tgz#3ce939cb127fb8aaa3ffc1e90dff9b8af9f2e3dc"
+
 "@apollographql/graphql-playground-html@1.6.26":
   version "1.6.26"
   resolved "https://registry.yarnpkg.com/@apollographql/graphql-playground-html/-/graphql-playground-html-1.6.26.tgz#2f7b610392e2a872722912fc342b43cf8d641cb3"
@@ -1326,7 +1330,7 @@ apollo-server-caching@^0.5.2:
   dependencies:
     lru-cache "^5.0.0"
 
-apollo-server-core@^2.16.1:
+apollo-server-core@^2.14.2:
   version "2.16.1"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-2.16.1.tgz#5b5b8245ab9c0cb6c2367ec19ab855dea6ccea3a"
   dependencies:
@@ -1364,14 +1368,14 @@ apollo-server-errors@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-2.4.2.tgz#1128738a1d14da989f58420896d70524784eabe5"
 
-apollo-server-micro@^2.9.16:
-  version "2.16.1"
-  resolved "https://registry.yarnpkg.com/apollo-server-micro/-/apollo-server-micro-2.16.1.tgz#937f97a92041f3ddabc36e57ece12adedddee913"
+apollo-server-micro@^2.14.2:
+  version "2.14.2"
+  resolved "https://registry.yarnpkg.com/apollo-server-micro/-/apollo-server-micro-2.14.2.tgz#d4c735af26c82a3b0763bced054e6ff8d969231b"
   dependencies:
-    "@apollographql/graphql-playground-html" "1.6.26"
+    "@apollographql/graphql-playground-html" "1.6.24"
     accept "^3.0.2"
-    apollo-server-core "^2.16.1"
-    apollo-server-types "^0.5.1"
+    apollo-server-core "^2.14.2"
+    apollo-server-types "^0.5.0"
     micro "^9.3.2"
 
 apollo-server-plugin-base@^0.9.1:
@@ -1380,7 +1384,7 @@ apollo-server-plugin-base@^0.9.1:
   dependencies:
     apollo-server-types "^0.5.1"
 
-apollo-server-types@^0.5.1:
+apollo-server-types@^0.5.0, apollo-server-types@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/apollo-server-types/-/apollo-server-types-0.5.1.tgz#091c09652894d6532db9ba873574443adabf85b9"
   dependencies:
