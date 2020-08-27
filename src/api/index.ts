@@ -13,7 +13,8 @@ const cors = microCors({
 const server = new ApolloServer({
     playground: true,
     introspection: true,
-    mocks: true,
+    // mocks: true,
+
     typeDefs: gqlSchema,
     resolvers: resolvers as any
 })

@@ -2,7 +2,10 @@
     "set": [
         {
             "uid": "_:anime1",
-            "title": "anime1",
+            "title": {
+                "english": "anime1",
+                "romaji": "anime1"
+            },
             "description": "",
             "minutesPerEpisode": 23,
             "episodeCount": 23,
@@ -10,24 +13,24 @@
             "has_status": {
                 "uid": "_:status1"
             },
-            "tagged": [
+            "has_genre": [
+                {
+                    "uid": "_:genre1",
+                    "has_genre|score": 1
+                },
+                {
+                    "uid": "_:genre2",
+                    "has_genre|score": 1
+                }
+            ],
+            "has_tag": [
                 {
                     "uid": "_:tag1",
-                    "tagged|score": 1
+                    "has_tag|score": 1
                 },
                 {
                     "uid": "_:tag2",
-                    "tagged|score": 1
-                }
-            ],
-            "subtagged": [
-                {
-                    "uid": "_:subtag1",
-                    "subtagged|score": 1
-                },
-                {
-                    "uid": "_:subtag2",
-                    "subtagged|score": 1
+                    "has_tag|score": 1
                 }
             ],
             "emotioned": [
@@ -43,6 +46,16 @@
             "dgraph.type": "Anime"
         },
         {
+            "uid": "_:genre1",
+            "name": "genre1",
+            "dgraph.type": "Genre"
+        },
+        {
+            "uid": "_:genre2",
+            "name": "genre2",
+            "dgraph.type": "Genre"
+        },
+        {
             "uid": "_:tag1",
             "name": "tag1",
             "dgraph.type": "Tag"
@@ -51,16 +64,6 @@
             "uid": "_:tag2",
             "name": "tag2",
             "dgraph.type": "Tag"
-        },
-        {
-            "uid": "_:subtag1",
-            "name": "subtag1",
-            "dgraph.type": "Subtag"
-        },
-        {
-            "uid": "_:subtag2",
-            "name": "subtag2",
-            "dgraph.type": "Subtag"
         },
         {
             "uid": "_:emotion1",
@@ -86,7 +89,7 @@
             "hash": "",
             "suggests": [
                 {
-                    "suggests|score": 1,
+                    "suggests|affinity": 1,
                     "uid": "_:anime1"
                 }
             ],

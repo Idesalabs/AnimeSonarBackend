@@ -39,7 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var _1 = __importDefault(require("./"));
+var _1 = __importDefault(require("."));
 var fs = require("fs");
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var data, _a;

@@ -1,4 +1,4 @@
-import schema from './'
+import schema from '.'
 import fs = require('fs')
 
 (async () => {

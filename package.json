@@ -7,8 +7,9 @@
     "start": "micro",
     "deploy": "npm run build && now --prod",
     "dev": "micro-dev ./dist/src/index.js -l tcp://localhost:2000",
-    "build": "npm run buildSchema && tsc",
-    "buildSchema": "tsc --lib esnext --types node --esModuleInterop ./src/schema/generateSchemaString.ts && node ./src/schema/generateSchemaString.js"
+    "build": "npm run buildSchema  && npm run generate && tsc",
+    "buildSchema": "tsc --lib esnext --types node --esModuleInterop ./src/schema/generateSchemaString.ts && node ./src/schema/generateSchemaString.js",
+    "generate": "graphql-codegen"
   },
   "repository": {
     "type": "git",
@@ -21,14 +22,22 @@
   },
   "homepage": "https://github.com/Idesalabs/AnimeSonarBackend#readme",
   "dependencies": {
+    "@types/micro": "^7.3.3",
     "apollo-server-micro": "^2.9.16",
+    "date-fns": "^2.15.0",
     "graphql": "^14.6.0",
     "graphql-import": "^1.0.0-beta.2",
     "jsonwebtoken": "^8.5.1",
+    "micro": "^9.3.4",
     "micro-cors": "^0.1.1",
+    "moment": "^2.27.0",
     "prisma-client-lib": "^1.34.10"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.15.3",
+    "@graphql-codegen/typescript-graphql-request": "^1.15.3",
+    "@graphql-codegen/typescript-operations": "^1.15.3",
+    "@graphql-codegen/typescript-resolvers": "^1.15.3",
     "@types/jsonwebtoken": "^8.3.7",
     "micro-dev": "^3.0.0",
     "path": "^0.12.7",
