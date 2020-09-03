@@ -8,7 +8,7 @@ import fs = require('fs')
     `
     console.log('Generating Schema String')
 
-    fs.writeFile('./src/schema/schemaString.ts', data, (err) => {
+    fs.writeFile('./src/api/schema/schemaString.ts', data, (err) => {
         if (err) console.error(err)
         console.log('Successfully Generated Schema String')
     })

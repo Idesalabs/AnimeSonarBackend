@@ -1,0 +1,8 @@
+{
+    "mocha.files.glob": "src/**/*test.ts",
+    "mocha.requires": [
+        "ts-node/register"
+    ],
+    "mocha.parallelTests": 1,
+    "mocha.options": null
+}

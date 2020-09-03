@@ -51,7 +51,7 @@ var fs = require("fs");
             case 1:
                 data = _a + (_b.sent()) + "`\n    export default data\n    ";
                 console.log('Generating Schema String');
-                fs.writeFile('./src/schema/schemaString.ts', data, function (err) {
+                fs.writeFile('./src/api/schema/schemaString.ts', data, function (err) {
                     if (err)
                         console.error(err);
                     console.log('Successfully Generated Schema String');

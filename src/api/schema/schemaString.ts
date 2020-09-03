@@ -15,7 +15,7 @@ type Anime {
   tags: [Tag!]
   id: ID!
   status: AnimeStatus!
-  epochAired: Int!
+  isoAired: String!
   coverImage: String!
   bannerImage: String
 }
@@ -37,6 +37,7 @@ type Tag {
 
 input TagInput {
   name: String!
+  description: String
 }
 
 input RateGenreInput {
@@ -81,7 +82,7 @@ input AnimeInput {
   tags: [TagInput!]
   id: ID!
   status: AnimeStatus!
-  epochAired: Int!
+  isoAired: String!
   coverImage: String!
   bannerImage: String
 }

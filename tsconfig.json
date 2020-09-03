@@ -1,26 +1,30 @@
 {
     "compilerOptions": {
         "outDir": "dist",
-        "rootDir": "./",
+        "rootDir": "src",
         "lib": [
             "es2016",
             "esnext.asynciterable",
-            "esnext"
+            "esnext",
+            "dom"
         ],
         "esModuleInterop": true,
         "strict": true,
         "module": "commonjs",
+        "baseUrl": ".",
         "moduleResolution": "node",
         "sourceMap": true,
         "target": "es2018",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "resolveJsonModule": true
     },
     "typeRoots": [
         "./node_modules/@types",
         "./src/types"
     ],
     "types": [
-        "node"
+        "node",
+        "mocha"
     ],
     "include": [
         "src/**/*"

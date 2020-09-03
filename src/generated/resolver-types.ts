@@ -21,7 +21,7 @@ export type Anime = {
   tags?: Maybe<Array<Tag>>;
   id: Scalars['ID'];
   status: AnimeStatus;
-  epochAired: Scalars['Int'];
+  isoAired: Scalars['String'];
   coverImage: Scalars['String'];
   bannerImage?: Maybe<Scalars['String']>;
 };
@@ -35,7 +35,7 @@ export type AnimeInput = {
   tags?: Maybe<Array<TagInput>>;
   id: Scalars['ID'];
   status: AnimeStatus;
-  epochAired: Scalars['Int'];
+  isoAired: Scalars['String'];
   coverImage: Scalars['String'];
   bannerImage?: Maybe<Scalars['String']>;
 };
@@ -147,6 +147,7 @@ export type Tag = {
 
 export type TagInput = {
   name: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
 };
 
 
@@ -283,7 +284,7 @@ export type AnimeResolvers<ContextType = any, ParentType extends ResolversParent
   tags?: Resolver<Maybe<Array<ResolversTypes['Tag']>>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   status?: Resolver<ResolversTypes['AnimeStatus'], ParentType, ContextType>;
-  epochAired?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  isoAired?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   coverImage?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   bannerImage?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType>;

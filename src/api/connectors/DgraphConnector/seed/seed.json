@@ -2,14 +2,14 @@
     "set": [
         {
             "uid": "_:anime1",
-            "title": {
-                "english": "anime1",
-                "romaji": "anime1"
-            },
+            "title": "anime1",
+            "coverImage": "",
+            "bannerImage": "",
             "description": "",
             "minutesPerEpisode": 23,
             "episodeCount": 23,
-            "epochAired": "2019-03-28T14:00:00-06:00",
+            "_anilistId": 220011,
+            "isoAired": "2019-03-28T14:00:00-06:00",
             "has_status": {
                 "uid": "_:status1"
             },
@@ -58,11 +58,13 @@
         {
             "uid": "_:tag1",
             "name": "tag1",
+            "description": "",
             "dgraph.type": "Tag"
         },
         {
             "uid": "_:tag2",
             "name": "tag2",
+            "description": "",
             "dgraph.type": "Tag"
         },
         {
@@ -77,13 +79,20 @@
         },
         {
             "uid": "_:status1",
-            "status": "airing"
+            "status": "airing",
+            "dgraph.type": "Status"
         },
         {
-            "status": "upcoming"
+            "status": "upcoming",
+            "dgraph.type": "Status"
         },
         {
-            "status": "finished"
+            "status": "finished",
+            "dgraph.type": "Status"
+        },
+        {
+            "status": "cancelled",
+            "dgraph.type": "Status"
         },
         {
             "hash": "",

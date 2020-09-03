@@ -1,0 +1,30 @@
+{
+    "set": [
+        {
+            "title": "anime2",
+            "coverImage": "",
+            "bannerImage": "",
+            "description": "",
+            "minutesPerEpisode": 23,
+            "episodeCount": 23,
+            "_anilistId": 220011,
+            "isoAired": "2019-03-28T14:00:00-06:00",
+            "has_status": {
+                "uid": "0x2714"
+            },
+            "has_genre": [
+                {
+                    "uid": "0x2717",
+                    "has_genre|score": 1
+                }
+            ],
+            "has_tag": [
+                {
+                    "uid": "0x2712",
+                    "has_tag|score": 1
+                }
+            ],
+            "dgraph.type": "Anime"
+        }
+    ]
+}
