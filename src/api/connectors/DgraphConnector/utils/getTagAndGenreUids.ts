@@ -1,42 +1,41 @@
 import { CreateAnimeInput } from "src/generated/resolver-types";
 import getAllGenreAndTags from './getAllGenreAndTagsAndStatus';
-import createGenre from './createGenre';
+import createGenre from './createMeta';
 import createTag from './createTag';
 import getAllGenreAndTagsAndStatus from './getAllGenreAndTagsAndStatus';
 import { DgraphClient } from 'dgraph-js';
 import { UidMap } from 'src/types';
+import createMeta from './createMeta';
 
 export async function getTagAndGenreUids(anime: CreateAnimeInput, client: DgraphClient): Promise<{ tags: UidMap; genres: UidMap; }> {
 
-    const genreSet = new Set<string>();
-    const tagSet = new Set<string>();
+    const genreMap = new Map<string, { name: string }>();
+    const tagMap = new Map<string, { name: string, description: string }>();
 
     anime.anime.forEach(anime => {
-        anime.genre.forEach(genre => {
-            genreSet.add(genre.name);
+        anime.genre.forEach(({ name }) => {
+            genreMap.set(name, { name })
 
         });
-        anime.tags?.forEach(tag => {
-            tagSet.add(tag.name);
+        anime.tags?.forEach(({ name, description }) => {
+            tagMap.set(name, { name, description: description ?? '' });
         });
     });
 
     const { tags, genres } = await getAllGenreAndTagsAndStatus(client);
 
-    for (const genre in Object.values(genres)) {
-        genreSet.delete(genre);
-    }
+    for (const tag in tags) tagMap.delete(tag)
+    for (const genre in genres) genreMap.delete(genre)
 
-    for (const tag in Object.values(tags)) {
-        tagSet.delete(tag);
-    }
+    const createGenre = createMeta("Genre", client)
+    const createTag = createMeta("Tag", client)
 
-
-
-    const newGenres = await createGenre(genreSet);
-    const newTags = await createTag(tagSet);
+    const newGenres = await createGenre(Object.values(genreMap));
+    const newTags = await createTag(Object.values(tagMap));
 
 
 
     return { tags: { ...tags, ...newTags }, genres: { ...genres, ...newGenres } };
 }
+
+

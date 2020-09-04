@@ -4,6 +4,8 @@ import clearDb from '../seed/clearDb';
 import { initDgraphClient } from '..';
 import seedDb from '../seed/seedDb';
 import getAllGenreAndTagsAndStatus from './getAllGenreAndTagsAndStatus';
+import createGenre from './createMeta';
+import createMeta from './createMeta';
 
 const expect = chai.expect;
 chai.use(chaiAsPromised);
@@ -31,4 +33,26 @@ describe("Connector Behaviour Tests", () => {
 
 
     });
+
+    describe("Create Meta", () => {
+        const createGenre = createMeta('Genre', client)
+        const createTag = createMeta('Tag', client)
+
+        it("Create Genre Should Work", async () => {
+            const genres = ["Romance", "Comedy", "Action"].map(g => ({ name: g }))
+            // const genreSet = new Set(genres)
+            const result = await createGenre(genres)
+            expect(Object.keys(result)).to.have.members(genres.map(g => g.name))
+        })
+
+        it("Create Tag Should Work", async () => {
+            const tags = ["Female Protagonist", "Love Triangle", "Harem"].map(t => ({ name: t, description: "description " + t }))
+            const result = await createTag(tags)
+            console.log(result)
+            expect(Object.keys(result)).to.have.members(tags.map(t => t.name))
+
+        })
+
+
+    })
 });
