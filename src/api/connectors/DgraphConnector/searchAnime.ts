@@ -4,8 +4,8 @@ import { AnimeDBInput } from './utils/parseAnimeToDbAnime';
 import parseDbAnimeToAnime from './utils/parseDbAnimeToAnime';
 
 const query = `
-query searchAnime($anime:string,$limit:int){
-    anime(func:match(title, $anime,5),first:$limit){
+query searchAnime($anime:string, $limit:int){
+    anime(func:match(title, $anime,5),first: $limit){
       uid
       title
       coverImage
@@ -35,10 +35,11 @@ query searchAnime($anime:string,$limit:int){
 
 export default async (input: SearchAnimeInput, client: DgraphClient): Promise<Anime[]> => {
   try {
-    const res = await client.newTxn().queryWithVars(query, { $anime: input.searchText, $limit: input.limit ?? 10 })
+    const res = await client.newTxn().queryWithVars(query, { $anime: input.searchText, $limit: input.limit?.toString() ?? "10" })
     const { anime = [] } = res.getJson() as { anime: AnimeDBOutput[] }
     return anime.map(parseDbAnimeToAnime)
   } catch (error) {
+    console.log(error)
     return []
   }
 }

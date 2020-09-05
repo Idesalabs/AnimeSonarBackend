@@ -1,4 +1,5 @@
 import { GraphQLResolveInfo } from 'graphql';
+import { Context } from 'src/types';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
@@ -66,6 +67,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   rateAnime: Scalars['Boolean'];
   createAnime: Scalars['Boolean'];
+  _initSchema: Scalars['Boolean'];
 };
 
 
@@ -76,6 +78,11 @@ export type MutationRateAnimeArgs = {
 
 export type MutationCreateAnimeArgs = {
   input: CreateAnimeInput;
+};
+
+
+export type Mutation_InitSchemaArgs = {
+  input: Scalars['Boolean'];
 };
 
 export type Query = {
@@ -275,7 +282,7 @@ export type ResolversParentTypes = {
   TagInput: TagInput;
 };
 
-export type AnimeResolvers<ContextType = any, ParentType extends ResolversParentTypes['Anime'] = ResolversParentTypes['Anime']> = {
+export type AnimeResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Anime'] = ResolversParentTypes['Anime']> = {
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   minutesPerEpisode?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -290,32 +297,33 @@ export type AnimeResolvers<ContextType = any, ParentType extends ResolversParent
   __isTypeOf?: IsTypeOfResolverFn<ParentType>;
 };
 
-export type GenreResolvers<ContextType = any, ParentType extends ResolversParentTypes['Genre'] = ResolversParentTypes['Genre']> = {
+export type GenreResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Genre'] = ResolversParentTypes['Genre']> = {
   averageRating?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType>;
 };
 
-export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+export type MutationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   rateAnime?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationRateAnimeArgs, 'input'>>;
   createAnime?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationCreateAnimeArgs, 'input'>>;
+  _initSchema?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<Mutation_InitSchemaArgs, 'input'>>;
 };
 
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+export type QueryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   searchAnime?: Resolver<Array<ResolversTypes['Anime']>, ParentType, ContextType, RequireFields<QuerySearchAnimeArgs, 'input'>>;
   searchGenre?: Resolver<Array<ResolversTypes['Genre']>, ParentType, ContextType, RequireFields<QuerySearchGenreArgs, 'input'>>;
   searchTags?: Resolver<Array<ResolversTypes['Tag']>, ParentType, ContextType, RequireFields<QuerySearchTagsArgs, 'input'>>;
   recommendAnime?: Resolver<Array<ResolversTypes['Anime']>, ParentType, ContextType, RequireFields<QueryRecommendAnimeArgs, 'input'>>;
 };
 
-export type TagResolvers<ContextType = any, ParentType extends ResolversParentTypes['Tag'] = ResolversParentTypes['Tag']> = {
+export type TagResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Tag'] = ResolversParentTypes['Tag']> = {
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType>;
 };
 
-export type Resolvers<ContextType = any> = {
+export type Resolvers<ContextType = Context> = {
   Anime?: AnimeResolvers<ContextType>;
   Genre?: GenreResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
@@ -328,4 +336,4 @@ export type Resolvers<ContextType = any> = {
  * @deprecated
  * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
  */
-export type IResolvers<ContextType = any> = Resolvers<ContextType>;
+export type IResolvers<ContextType = Context> = Resolvers<ContextType>;

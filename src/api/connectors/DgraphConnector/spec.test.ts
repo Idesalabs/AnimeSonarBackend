@@ -7,6 +7,7 @@ import createDbAnime from './createDbAnime';
 import clearDb from './seed/clearDb';
 import seedDb from './seed/seedDb';
 import { values } from 'lodash';
+import searchAnime from './searchAnime';
 
 const expect = chai.expect;
 chai.use(chaiAsPromised);
@@ -84,6 +85,15 @@ describe("Connector Behaviour Tests", () => {
     })
 
 
+  })
+
+  describe("Search Anime", () => {
+    it('Should return anime', async () => {
+
+      const result = await searchAnime({ searchText: 'anime', limit: 10 }, client)
+      console.log(JSON.stringify(result))
+      expect(true).to.be.eq(true)
+    })
   })
 
 })

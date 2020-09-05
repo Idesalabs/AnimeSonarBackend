@@ -2,9 +2,6 @@ import { UidMap } from 'src/types'
 import { DgraphClient, Mutation } from 'dgraph-js'
 const dgraph = require('dgraph-js')
 
-const mutation = `
-
-`
 
 type MetaInput = { name: string, description?: string }
 
