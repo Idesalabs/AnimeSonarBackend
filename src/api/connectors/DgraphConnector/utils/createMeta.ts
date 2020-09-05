@@ -12,7 +12,7 @@ export default (type: 'Genre' | 'Tag', client: DgraphClient) => async (metaInput
     const txn = client.newTxn()
 
     const req = new dgraph.Request();
-    req.setCommitNow(true)
+
     const mutationList: Mutation[] = []
 
     for (const metaInput of metaInputs) {
@@ -23,9 +23,11 @@ export default (type: 'Genre' | 'Tag', client: DgraphClient) => async (metaInput
     }
 
     req.setMutationsList(mutationList)
+    req.setCommitNow(true)
+
     const response = await txn.doRequest(req)
     const uidMap = response.getUidsMap()
-
+    // await txn.commit()
     await txn.discard()
 
     return (() => {

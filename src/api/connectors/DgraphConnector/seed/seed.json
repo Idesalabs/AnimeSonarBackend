@@ -16,31 +16,37 @@
             "has_genre": [
                 {
                     "uid": "_:genre1",
-                    "has_genre|score": 1
+                    "has_genre|score": 1,
+                    "has_genre|score_count": 1
                 },
                 {
                     "uid": "_:genre2",
-                    "has_genre|score": 1
+                    "has_genre|score": 1,
+                    "has_genre|score_count": 1
                 }
             ],
             "has_tag": [
                 {
                     "uid": "_:tag1",
-                    "has_tag|score": 1
+                    "has_tag|score": 1,
+                    "has_tag|score_count": 1
                 },
                 {
                     "uid": "_:tag2",
-                    "has_tag|score": 1
+                    "has_tag|score": 1,
+                    "has_tag|score_count": 1
                 }
             ],
             "emotioned": [
                 {
                     "uid": "_:emotion1",
-                    "emotioned|score": 1
+                    "emotioned|score": 1,
+                    "emotioned|score_count": 1
                 },
                 {
                     "uid": "_:emotion2",
-                    "emotioned|score": 1
+                    "emotioned|score": 1,
+                    "emotioned|score_count": 1
                 }
             ],
             "dgraph.type": "Anime"

@@ -1,5 +1,5 @@
-
+type Uid = string
 export interface UidMap {
-    [name: string]: string
+    [name: string]: Uid
 }
 

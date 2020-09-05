@@ -13,9 +13,10 @@ export default `
 <isoAired>: string .
 <minutesPerEpisode>: int .
 <name>: string .
+<set>: [uid] .
 <status>: string .
 <suggests>: [uid] .
-<title>: string @index(hash) .
+<title>: string @index(hash, trigram) .
 
 type Anime {
     _anilistId

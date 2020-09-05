@@ -87,6 +87,7 @@ input AnimeInput {
   coverImage: String!
   bannerImage:String
 }
+
 input CreateAnimeInput {
 anime:[AnimeInput!]!
 }
