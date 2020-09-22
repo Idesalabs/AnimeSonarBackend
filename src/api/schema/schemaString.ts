@@ -101,6 +101,7 @@ type Query {
 type Mutation {
   rateAnime(input: RateAnimeInput!): Boolean!
   createAnime(input: CreateAnimeInput!): Boolean!
+  _initSchema(input: Boolean!): Boolean!
 }
 `
     export default data
