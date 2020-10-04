@@ -1,4 +1,4 @@
-import { Connector } from 'src/api/connectors';
+import { Connector } from '../api/connectors';
 
 type Uid = string
 export interface UidMap {

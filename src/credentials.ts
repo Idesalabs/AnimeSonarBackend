@@ -7,3 +7,4 @@ export const DGRAPH_API_KEY = process.env.DGRAPH_API_KEY
 if (!DGRAPH_API_KEY) console.info('DGRAPH_API_KEY NOT PASSED')
 
 
+console.log(JWT_SECRET, DGRAPH_ADDRESS)

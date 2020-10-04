@@ -1,5 +1,5 @@
 import { chain } from 'lodash';
-import { UidMap } from 'src/types';
+import { UidMap } from '../../../../types';
 import { MetaValue } from './getMeta';
 
 

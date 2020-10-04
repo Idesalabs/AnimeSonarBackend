@@ -1,10 +1,10 @@
 import { ApolloServer, gql, ApolloError } from 'apollo-server-micro'
 import schema from './schema/schemaString'
 import resolvers from './resolvers'
-import { Context, DecodedToken } from 'src/types'
+import { Context, DecodedToken } from '../types'
 import jwt from 'jsonwebtoken'
 import DgraphConnector from './connectors/DgraphConnector'
-import { DGRAPH_ADDRESS, JWT_SECRET, DGRAPH_API_KEY } from 'src/credentials'
+import { DGRAPH_ADDRESS, JWT_SECRET, DGRAPH_API_KEY } from '../credentials'
 
 const gqlSchema = gql(schema)
 const microCors = require('micro-cors')
@@ -29,7 +29,7 @@ const server = new ApolloServer({
     context: async ({ req }: any): Promise<Context> => {
         let connector;
         try {
-            connector = DgraphConnector(DGRAPH_ADDRESS, DGRAPH_API_KEY)
+            connector = DgraphConnector(DGRAPH_ADDRESS ?? 'localhost:9080', DGRAPH_API_KEY ?? '')
         } catch (error) {
             throw new ApolloError('Issue Connecting To Database')
         }

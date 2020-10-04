@@ -1,5 +1,5 @@
 import { AnimeDBOutput } from '../searchAnime';
-import { Anime } from 'src/generated/resolver-types';
+import { Anime } from '../../../../generated/resolver-types';
 
 export default (animeDb: AnimeDBOutput, currentIndex: number): Anime => {
     const { coverImage, bannerImage, description, episodeCount, has_genre, has_status, has_tag, isoAired, minutesPerEpisode, title, uid } = animeDb

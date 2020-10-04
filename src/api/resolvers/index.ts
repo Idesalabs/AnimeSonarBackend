@@ -24,7 +24,12 @@ const Mutation: Resolvers["Mutation"] = {
       return false
     }
 
-    return await context.connector.createDbAnime(input);
+    const { errors } = await context.connector.createDbAnime(input);
+    if (errors.length) {
+      console.log(errors)
+      return false
+    }
+    return true
   },
   async _initSchema(_, { input }, context) {
     if (context.me?.role !== 'INTERNAL' || !input) {

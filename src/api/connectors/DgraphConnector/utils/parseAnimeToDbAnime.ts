@@ -1,5 +1,5 @@
-import { AnimeInput } from 'src/generated/resolver-types';
-import { UidMap } from 'src/types';
+import { AnimeInput } from '../../../../generated/resolver-types';
+import { UidMap } from '../../../../types';
 
 export interface AnimeDBInput {
     title: string;

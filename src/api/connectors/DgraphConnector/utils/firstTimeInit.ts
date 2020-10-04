@@ -1,4 +1,4 @@
-import dgraph = require("dgraph-js");
+import dgraph = require("simdi-dgraph-js");
 import schema from '../seed/schema';
 
 export default async (client: dgraph.DgraphClient) => {

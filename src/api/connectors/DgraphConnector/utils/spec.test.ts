@@ -13,7 +13,7 @@ import MetaValueToUidMap from './MetaValueToUidMap';
 const expect = chai.expect;
 chai.use(chaiAsPromised);
 
-const client = initDgraphClient()
+const client = initDgraphClient('localhost:9980', '')
 
 describe("Utility Behaviour Tests", () => {
     beforeEach(async () => {

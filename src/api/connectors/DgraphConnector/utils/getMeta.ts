@@ -1,4 +1,4 @@
-import { DgraphClient } from 'dgraph-js';
+import { DgraphClient } from 'simdi-dgraph-js';
 
 
 export default async (client: DgraphClient): Promise<Result> => {

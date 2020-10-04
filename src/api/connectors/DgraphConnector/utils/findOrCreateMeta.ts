@@ -1,7 +1,7 @@
-import { CreateAnimeInput } from "src/generated/resolver-types";
+// import { CreateAnimeInput } from "src/generated/resolver-types";
 import getMeta from './getMeta';
-import { DgraphClient } from 'dgraph-js';
-import { UidMap } from 'src/types';
+import { DgraphClient } from 'simdi-dgraph-js';
+import { UidMap } from '../../../../types';
 import createMeta from './createMeta';
 import MetaValueToUidMap from './MetaValueToUidMap';
 

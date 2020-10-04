@@ -1,5 +1,5 @@
-import { SearchAnimeInput, Anime, AnimeStatus } from 'src/generated/resolver-types';
-import { DgraphClient } from 'dgraph-js';
+import { SearchAnimeInput, Anime, AnimeStatus } from '../../../generated/resolver-types';
+import { DgraphClient } from 'simdi-dgraph-js';
 import { AnimeDBInput } from './utils/parseAnimeToDbAnime';
 import parseDbAnimeToAnime from './utils/parseDbAnimeToAnime';
 

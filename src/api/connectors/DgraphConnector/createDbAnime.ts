@@ -1,17 +1,19 @@
-import dgraph = require("dgraph-js");
+import dgraph = require("simdi-dgraph-js");
 import {
     CreateAnimeInput, AnimeInput, Maybe,
-} from "src/generated/resolver-types";
+} from "../../../generated/resolver-types";
 import findOrCreateMeta from './utils/findOrCreateMeta';
 import parseAnimeToDbAnime, { AnimeDBInput } from './utils/parseAnimeToDbAnime';
 import extractMeta from './utils/extractMeta';
 
 import PromisePool from "@supercharge/promise-pool";
-import { Uid } from 'src/types';
+// import { Uid } from 'src/types';
 import { uniqBy } from 'lodash';
 
+type AnimeTitle = string
+type AnimeDbUid = Maybe<string>
 
-type UpsertAnimeResult = [string, Maybe<string>]
+type UpsertAnimeResult = [AnimeTitle, AnimeDbUid]
 const upsertAnime = async (anime: AnimeDBInput, client: dgraph.DgraphClient): Promise<UpsertAnimeResult> => {
     const query = `
 query {
@@ -43,6 +45,7 @@ query {
 
 
 }
+
 
 
 
