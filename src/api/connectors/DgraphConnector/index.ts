@@ -1,5 +1,5 @@
 import { Connector } from "../../../api/connectors";
-import dgraph = require("simdi-dgraph-js");
+import dgraph = require("dgraph-js");
 import grpc = require('grpc')
 import createDbAnime from './createDbAnime';
 import searchAnime from './searchAnime';
@@ -11,10 +11,10 @@ type DgraphConnectorType = (address: string, apiKey: string) => Connector;
 export const initDgraphClient = (address: string, apiKey: string) => {
     try {
 
+        const clientStub = apiKey.length ?
+            new (dgraph as any).clientStubFromSlashGraphQLEndpoint(address, apiKey) as dgraph.DgraphClientStub :
 
-        // const creds = grpc.credentials.createInsecure();
-
-        const clientStub = new (dgraph as any).clientStubFromSlashGraphQLEndpoint(address, apiKey) as dgraph.DgraphClientStub
+            new dgraph.DgraphClientStub(address,)
 
         const client = new dgraph.DgraphClient(clientStub)
         // client.setDebugMode(true)

@@ -23,9 +23,15 @@ export type Anime = {
   id: Scalars['ID'];
   status: AnimeStatus;
   isoAired: Scalars['String'];
+  format: AnimeFormat;
   coverImage: Scalars['String'];
   bannerImage?: Maybe<Scalars['String']>;
 };
+
+export enum AnimeFormat {
+  Tv = 'tv',
+  Movie = 'movie'
+}
 
 export type AnimeInput = {
   title: Scalars['String'];
@@ -39,6 +45,7 @@ export type AnimeInput = {
   isoAired: Scalars['String'];
   coverImage: Scalars['String'];
   bannerImage?: Maybe<Scalars['String']>;
+  format: AnimeFormat;
 };
 
 export enum AnimeStatus {
@@ -245,6 +252,7 @@ export type ResolversTypes = {
   ID: ResolverTypeWrapper<Scalars['ID']>;
   Tag: ResolverTypeWrapper<Tag>;
   AnimeStatus: AnimeStatus;
+  AnimeFormat: AnimeFormat;
   SearchGenreInput: SearchGenreInput;
   RecommendAnimeInput: RecommendAnimeInput;
   RecommendAnimeInputGenreInput: RecommendAnimeInputGenreInput;
@@ -292,6 +300,7 @@ export type AnimeResolvers<ContextType = Context, ParentType extends ResolversPa
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   status?: Resolver<ResolversTypes['AnimeStatus'], ParentType, ContextType>;
   isoAired?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  format?: Resolver<ResolversTypes['AnimeFormat'], ParentType, ContextType>;
   coverImage?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   bannerImage?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType>;

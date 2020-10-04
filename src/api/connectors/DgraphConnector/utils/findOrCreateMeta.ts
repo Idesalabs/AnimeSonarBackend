@@ -1,6 +1,6 @@
 // import { CreateAnimeInput } from "src/generated/resolver-types";
 import getMeta from './getMeta';
-import { DgraphClient } from 'simdi-dgraph-js';
+import { DgraphClient } from 'dgraph-js';
 import { UidMap } from '../../../../types';
 import createMeta from './createMeta';
 import MetaValueToUidMap from './MetaValueToUidMap';
@@ -10,11 +10,11 @@ interface MetaMap {
     tagMap: Map<string, { name: string, description: string }>
 }
 
-export default async function ({ tagMap: _tagMap, genreMap: _genreMap }: MetaMap, client: DgraphClient): Promise<{ tags: UidMap; genres: UidMap; statuses: UidMap }> {
+export default async function ({ tagMap: _tagMap, genreMap: _genreMap }: MetaMap, client: DgraphClient): Promise<{ tags: UidMap; genres: UidMap; statuses: UidMap, formats: UidMap }> {
 
-    const { tags: _tags, genres: _genres, statuses: _statuses } = await getMeta(client);
+    const { tags: _tags, genres: _genres, statuses: _statuses, formats: _formats } = await getMeta(client);
 
-    const [tags, genres, statuses] = [_tags, _genres, _statuses].map(MetaValueToUidMap)
+    const [tags, genres, statuses, formats] = [_tags, _genres, _statuses, _formats].map(MetaValueToUidMap)
 
     const { genreMap, tagMap } = getMissingMeta();
 
@@ -30,7 +30,7 @@ export default async function ({ tagMap: _tagMap, genreMap: _genreMap }: MetaMap
 
 
 
-    return { tags: { ...tags, ...newTagsUidMaps }, genres: { ...genres, ...newGenresUidMaps }, statuses };
+    return { tags: { ...tags, ...newTagsUidMaps }, genres: { ...genres, ...newGenresUidMaps }, statuses, formats };
 
     function getMissingMeta() {
         const tagMap = new Map(_tagMap);

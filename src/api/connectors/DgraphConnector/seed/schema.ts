@@ -55,4 +55,7 @@ type Tag {
     name
 }
 
+type Format {
+    name
+}
 `;

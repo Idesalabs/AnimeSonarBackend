@@ -1,4 +1,4 @@
-import dgraph = require("simdi-dgraph-js");
+import dgraph = require("dgraph-js");
 import {
     CreateAnimeInput, AnimeInput, Maybe,
 } from "../../../generated/resolver-types";
@@ -51,10 +51,10 @@ query {
 
 export default async (input: CreateAnimeInput, client: dgraph.DgraphClient) => {
 
-    const { tags, genres, statuses } = await findOrCreateMeta(extractMeta(input), client);
+    const { tags, genres, statuses, formats } = await findOrCreateMeta(extractMeta(input), client);
 
 
-    const dbAnime = uniqBy(input.anime, 'title').map(a => parseAnimeToDbAnime(a, genres, tags, statuses))
+    const dbAnime = uniqBy(input.anime, 'title').map(a => parseAnimeToDbAnime(a, genres, tags, statuses, formats))
 
     const { errors, results } = await PromisePool
         .for(dbAnime)

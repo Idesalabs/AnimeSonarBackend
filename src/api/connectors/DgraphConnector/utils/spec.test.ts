@@ -13,7 +13,7 @@ import MetaValueToUidMap from './MetaValueToUidMap';
 const expect = chai.expect;
 chai.use(chaiAsPromised);
 
-const client = initDgraphClient('localhost:9980', '')
+const client = initDgraphClient('localhost:9080', '')
 
 describe("Utility Behaviour Tests", () => {
     beforeEach(async () => {
@@ -25,12 +25,13 @@ describe("Utility Behaviour Tests", () => {
     describe("Initial Meta", () => {
 
         it("Initial tags,genres,statuses should be correct", async () => {
-            const { tags, genres, statuses } = await getAllGenreAndTagsAndStatus(client)
-            const [_tags, _genres, _statuses] = [tags, genres, statuses].map(d => d.map(a => a.name))
+            const { tags, genres, statuses, formats } = await getAllGenreAndTagsAndStatus(client)
+            const [_tags, _genres, _statuses, _formats] = [tags, genres, statuses, formats].map(d => d.map(a => a.name))
 
             expect(_tags).to.have.members(['tag1', 'tag2'])
             expect(_genres).to.have.members(['genre1', 'genre2'])
             expect(_statuses).to.have.members(['airing', 'upcoming', 'finished', 'cancelled'])
+            expect(_formats).to.have.members(['tv', 'movie'])
 
         });
 

@@ -2427,13 +2427,15 @@ dgraph-js-http@^20.7.1:
     isomorphic-fetch "^2.2.1"
     jsonwebtoken "^8.5.1"
 
-dgraph-js@^20.3.0:
-  version "20.3.0"
-  resolved "https://registry.yarnpkg.com/dgraph-js/-/dgraph-js-20.3.0.tgz#3e0a656f8607e1658c5e3d80bb26f7bce0eab765"
+dgraph-js@^20.3.1:
+  version "20.3.1"
+  resolved "https://registry.yarnpkg.com/dgraph-js/-/dgraph-js-20.3.1.tgz#1b30248b7f5d7fe6f05b7fb460ae7f9f914e209b"
   dependencies:
+    "@grpc/grpc-js" "^1.1.7"
+    "@types/url-parse" "^1.4.3"
     google-protobuf "^3.8.0"
-    grpc "^1.21.1"
-    is-base64 "^0.1.0"
+    is-base64 "^1.1.0"
+    url-parse "^1.4.7"
 
 dicer@0.3.0:
   version "0.3.0"
@@ -3202,7 +3204,7 @@ growl@1.10.5:
   version "1.10.5"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.5.tgz#f2735dc2283674fa67478b10181059355c369e5e"
 
-grpc@^1.21.1, grpc@^1.24.3:
+grpc@^1.24.3:
   version "1.24.3"
   resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.24.3.tgz#92efe28dfc1250dca179b8133e40b4f2341473d9"
   dependencies:
@@ -3493,10 +3495,6 @@ is-arguments@^1.0.4:
 is-arrayish@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
-
-is-base64@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/is-base64/-/is-base64-0.1.0.tgz#a6f20610c6ef4863a51cba32bc0222544b932622"
 
 is-base64@^1.1.0:
   version "1.1.0"

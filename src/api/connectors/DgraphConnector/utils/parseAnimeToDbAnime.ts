@@ -11,6 +11,7 @@ export interface AnimeDBInput {
     _anilistId: string;
     isoAired: string;
     has_status: HasStatus;
+    has_format: HasFormat;
     has_genre: HasGenre[];
     has_tag: HasTag[];
     "dgraph.type": "Anime";
@@ -26,6 +27,10 @@ interface HasStatus {
     uid: string;
 }
 
+interface HasFormat {
+    uid: string
+}
+
 interface HasTag {
     uid: string;
     "has_tag|score": number;
@@ -35,8 +40,8 @@ interface HasTag {
 
 
 
-export default (animeInput: AnimeInput, genreUids: UidMap, tagUids: UidMap, statusUids: UidMap): AnimeDBInput => {
-    const { id, coverImage, description, episodeCount, isoAired, minutesPerEpisode, status, genre, title, bannerImage, tags } = animeInput
+export default (animeInput: AnimeInput, genreUids: UidMap, tagUids: UidMap, statusUids: UidMap, formatUids: UidMap): AnimeDBInput => {
+    const { id, coverImage, description, episodeCount, isoAired, minutesPerEpisode, status, genre, title, bannerImage, tags, format } = animeInput
 
     // console.log(genreUids)
 
@@ -52,7 +57,8 @@ export default (animeInput: AnimeInput, genreUids: UidMap, tagUids: UidMap, stat
         has_status: { uid: statusUids[status.toString()] },
         isoAired: isoAired,
         minutesPerEpisode,
-        title
+        title,
+        has_format: { uid: formatUids[format.toString()] }
 
 
     }

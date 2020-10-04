@@ -1,5 +1,5 @@
-import { SearchAnimeInput, Anime, AnimeStatus } from '../../../generated/resolver-types';
-import { DgraphClient } from 'simdi-dgraph-js';
+import { SearchAnimeInput, Anime, AnimeStatus, AnimeFormat } from '../../../generated/resolver-types';
+import { DgraphClient } from 'dgraph-js';
 import { AnimeDBInput } from './utils/parseAnimeToDbAnime';
 import parseDbAnimeToAnime from './utils/parseDbAnimeToAnime';
 
@@ -18,6 +18,11 @@ query searchAnime($anime:string, $limit:int){
       has_tag@facets{
       uid
       name
+      }
+
+      has_format{
+        uid
+        name
       }
       
       has_status{
@@ -61,6 +66,7 @@ export interface AnimeDBOutput {
   "has_tag|score_count": { [key: string]: number };
   has_status: HasStatus;
   has_genre: Has[];
+  has_format: HasFormat
   "has_genre|score": { [key: string]: number };
   "has_genre|score_count": { [key: string]: number };
 }
@@ -70,6 +76,10 @@ interface Has {
   name: string;
 }
 
+interface HasFormat {
+  uid: string
+  name: AnimeFormat
+}
 interface HasStatus {
   uid: string;
   status: AnimeStatus;

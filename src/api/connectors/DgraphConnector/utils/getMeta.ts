@@ -1,19 +1,20 @@
-import { DgraphClient } from 'simdi-dgraph-js';
+import { DgraphClient } from 'dgraph-js';
 
 
 export default async (client: DgraphClient): Promise<Result> => {
 
     const res = await client.newTxn().query(query)
-    const { genres = [], tags = [], statuses = [] } = res.getJson() as { genres: MetaValue, tags: MetaValue, statuses: MetaValue }
+    const { genres = [], tags = [], statuses = [], formats = [] } = res.getJson() as Result
 
     return {
         genres,
         tags,
-        statuses
+        statuses,
+        formats
     }
 }
 
-interface Result { genres: MetaValue, tags: MetaValue, statuses: MetaValue }
+interface Result { genres: MetaValue, tags: MetaValue, statuses: MetaValue, formats: MetaValue }
 
 export type MetaValue = Array<{ uid: string, name: string }>
 
@@ -33,6 +34,10 @@ const query = `query {
 
     }
 
+    formats(func: type("Format")){
+        uid
+        name
+    }
 
 
 }`

@@ -1,6 +1,6 @@
 import { UidMap } from 'src/types'
-import { DgraphClient, Mutation } from 'simdi-dgraph-js'
-const dgraph = require('simdi-dgraph-js')
+import { DgraphClient, Mutation } from 'dgraph-js'
+const dgraph = require('dgraph-js')
 
 
 type MetaInput = { name: string, description?: string }

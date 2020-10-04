@@ -1,4 +1,4 @@
-import dgraph = require("simdi-dgraph-js");
+import dgraph = require("dgraph-js");
 
 export default async (client: dgraph.DgraphClient) => {
   const op = new dgraph.Operation();

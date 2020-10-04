@@ -1,8 +1,8 @@
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import dgraph = require("simdi-dgraph-js");
+import dgraph = require("dgraph-js");
 import { initDgraphClient } from '.';
-import { AnimeInput, AnimeStatus, CreateAnimeInput } from '../../../generated/resolver-types';
+import { AnimeFormat, AnimeInput, AnimeStatus, CreateAnimeInput } from '../../../generated/resolver-types';
 import createDbAnime from './createDbAnime';
 import clearDb from './seed/clearDb';
 import seedDb from './seed/seedDb';
@@ -12,7 +12,7 @@ import searchAnime from './searchAnime';
 const expect = chai.expect;
 chai.use(chaiAsPromised);
 
-const client = initDgraphClient('https://gas-person-5102.us-west-2.aws.cloud.dgraph.io/graphql', 'x3hJocqIyoYO4qeu7x3fOzFqrWWFGUEDkNIz4DVttmY=')
+const client = initDgraphClient('localhost:9080', '')
 
 const anime: CreateAnimeInput['anime'] = [
   {
@@ -25,7 +25,8 @@ const anime: CreateAnimeInput['anime'] = [
     minutesPerEpisode: 20,
     status: AnimeStatus.Airing,
     title: "To Love Ru!",
-    bannerImage: ""
+    bannerImage: "",
+    format: AnimeFormat.Tv
   },
   {
     coverImage: "",
@@ -37,7 +38,8 @@ const anime: CreateAnimeInput['anime'] = [
     minutesPerEpisode: 20,
     status: AnimeStatus.Airing,
     title: "anime1",
-    bannerImage: ""
+    bannerImage: "",
+    format: AnimeFormat.Movie
   },
   {
     coverImage: "",
@@ -49,7 +51,8 @@ const anime: CreateAnimeInput['anime'] = [
     minutesPerEpisode: 20,
     status: AnimeStatus.Airing,
     title: "Boruto",
-    bannerImage: ""
+    bannerImage: "",
+    format: AnimeFormat.Tv
   },
   {
     coverImage: "",
@@ -61,7 +64,8 @@ const anime: CreateAnimeInput['anime'] = [
     minutesPerEpisode: 20,
     status: AnimeStatus.Airing,
     title: "Boruto",
-    bannerImage: ""
+    bannerImage: "",
+    format: AnimeFormat.Tv
   },
 
 ]

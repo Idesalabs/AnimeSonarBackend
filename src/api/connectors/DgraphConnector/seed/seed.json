@@ -10,6 +10,9 @@
             "episodeCount": 23,
             "_anilistId": 220011,
             "isoAired": "2019-03-28T14:00:00-06:00",
+            "has_format": {
+                "uid": "_:tv"
+            },
             "has_status": {
                 "uid": "_:status1"
             },
@@ -99,6 +102,16 @@
         {
             "status": "cancelled",
             "dgraph.type": "Status"
+        },
+        {
+            "uid": "_:tv",
+            "dgraph.type": "Format",
+            "name": "tv"
+        },
+        {
+            "uid": "_:movie",
+            "dgraph.type": "Format",
+            "name": "movie"
         },
         {
             "hash": "",

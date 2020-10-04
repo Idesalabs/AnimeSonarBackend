@@ -6,6 +6,11 @@ enum AnimeStatus {
   cancelled
 }
 
+enum AnimeFormat {
+tv
+movie
+}
+
 type Anime {
   title: String!
   description: String!
@@ -16,6 +21,7 @@ type Anime {
   id: ID!
   status: AnimeStatus!
   isoAired: String!
+  format:AnimeFormat!
   coverImage: String!
   bannerImage:String
 }
@@ -86,6 +92,7 @@ input AnimeInput {
   isoAired: String!
   coverImage: String!
   bannerImage:String
+  format:AnimeFormat!
 }
 
 input CreateAnimeInput {
