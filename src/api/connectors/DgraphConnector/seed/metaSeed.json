@@ -1,0 +1,28 @@
+{
+    "set": [
+        {
+            "status": "airing",
+            "dgraph.type": "Status"
+        },
+        {
+            "status": "upcoming",
+            "dgraph.type": "Status"
+        },
+        {
+            "status": "finished",
+            "dgraph.type": "Status"
+        },
+        {
+            "status": "cancelled",
+            "dgraph.type": "Status"
+        },
+        {
+            "dgraph.type": "Format",
+            "name": "tv"
+        },
+        {
+            "dgraph.type": "Format",
+            "name": "movie"
+        }
+    ]
+}
