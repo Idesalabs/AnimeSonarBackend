@@ -5,7 +5,7 @@ import parseDbAnimeToAnime from './utils/parseDbAnimeToAnime';
 
 const query = `
 query searchAnime($anime:string, $limit:int){
-    anime(func:match(title, $anime,5),first: $limit){
+    anime(func:alloftext(title, $anime),first: $limit){
       uid
       title
       coverImage

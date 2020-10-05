@@ -16,7 +16,7 @@ export default `
 <set>: [uid] .
 <status>: string .
 <suggests>: [uid] .
-<title>: string @index(hash, trigram) .
+<title>: string @index(fulltext, hash) .
 
 type Anime {
     _anilistId

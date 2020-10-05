@@ -11,13 +11,13 @@ export default (animeDb: AnimeDBOutput, currentIndex: number): Anime => {
         bannerImage,
         description,
         episodeCount,
-        genre: has_genre.map(g => ({ averageRating: totalRating / ratingCount, id: g.uid, name: g.name })),
-        tags: has_tag.map(t => ({ id: t.uid, name: t.name })),
+        genre: (has_genre ?? []).map(g => ({ averageRating: totalRating / ratingCount, id: g.uid, name: g.name })),
+        tags: (has_tag ?? []).map(t => ({ id: t.uid, name: t.name })),
         id: uid,
         isoAired,
         minutesPerEpisode,
-        status: has_status.status,
+        status: has_status?.status,
         title,
-        format: has_format.name
+        format: has_format?.name
     }
 }
