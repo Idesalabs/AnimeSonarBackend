@@ -32,7 +32,7 @@
     "dgraph-js-http": "^20.7.1",
     "graphql": "^14.6.0",
     "graphql-import": "^1.0.0-beta.2",
-    "grpc": "^1.24.3",
+    "grpc": "^1.24.9",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
     "lodash.keyby": "^4.6.0",
